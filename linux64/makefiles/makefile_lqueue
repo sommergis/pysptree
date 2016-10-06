@@ -1,0 +1,57 @@
+##############################################################################
+#									     #
+#   makefile of MCFSolve						     #
+#									     #
+#                                VERSION 2.00				     #
+#                	        12 - 06 - 2008				     #
+#									     #
+# 		               Implementation by:			     #
+#									     #
+#			       Antonio Frangioni			     #
+#									     #
+#   			   Operations Research Group			     #
+#			  Dipartimento di Informatica			     #
+#   			     Universita' di Pisa			     #
+#									     #
+##############################################################################
+
+# module name
+NAME = SPTSolve_LQueue
+
+# switches
+SW = -O3 -g
+
+# libreries
+LIB = -lm
+
+# compiler
+CC = g++
+
+CFLAGS = -DSPT_ALGRTM=0
+
+# default target- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+default: $(NAME)
+
+# clean - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+clean::
+	rm -f *.o *~ $(NAME)
+
+# main module (linking phase) - - - - - - - - - - - - - - - - - - - - - - - -
+
+OBJ =   SPTree.o Main.o
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB) $(SW)
+
+# dependencies: every .o from its .C + every recursively included .h- - - - -
+
+SPTree.o: SPTree.cpp SPTree.h MCFClass.h OPTUtils.h
+	$(CC) $(CFLAGS) -c $*.cpp -o $@ $(SW)  
+
+Main.o: Main.cpp SPTree.h MCFClass.h OPTUtils.h
+	$(CC) $(CFLAGS) -c $*.cpp -o $@ $(SW)
+
+
+############################ End of makefile #################################
