@@ -14,9 +14,7 @@ pySPTree was being made available through SWIG.
 ## 3. Who?
 The author of SPTree is Antonio Frangioni from the Operations Research Group at the Dipartimento di Informatica of the University of Pisa.
 
-pySPTree is brought to you by Johannes from the G#.Blog
-
-    http://www.sommer-forst.de/blog.
+pySPTree is brought to you by Johannes from the [G#.Blog](http://www.sommer-forst.de/blog)
 
 Feel free to contact me: info(at)sommer-forst.de
 
